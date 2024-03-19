@@ -4,7 +4,7 @@ import (
     "fmt"
     "log"
     "time"
-    "github.com/ryanwclark1/cmd/config" // Ensure this import path matches your project's structure
+    "github.com/ryanwclark1/ui2/cmd/config" // Ensure this import path matches your project's structure
 )
 
 func main() {
