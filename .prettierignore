@@ -1,0 +1,6 @@
+
+# Ignore static files.
+static/
+
+# Ignore templates.
+templates/
