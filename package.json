@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "latest",
+    "@tailwindcss/forms": "latest",
     "tailwindcss": "latest",
     "alpinejs": "latest",
     "htmx.org": "latest"

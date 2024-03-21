@@ -1,3 +1,5 @@
+const formsPlugin = require('@tailwindcss/forms')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['**/*.{html,templ}'],
