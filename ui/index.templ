@@ -2,22 +2,27 @@ package ui
 
 templ Index(page templ.Component) {
 	<!DOCTYPE html>
-	<html lang="en">
-		<meta charset="UTF-8"/>
-		<title>10.10.0</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1"/>
-		<link rel="stylesheet" href="/assets/css/styles.css"/>
-		<script src="/assets/js/htmx.min.js"></script>
-		<script src="/assets/js/hyperscript.min.js"></script>
-		<script src="/assets/js/json-enc.js"></script>
-		<script src="/assets/js/idiomorph-ext.min.js"></script>
-		<meta name="htmx-config" content={ `{"globalViewTransitions":true}` }/>
-		<body hx-ext="morph, json-enc" class="container mx-auto px-4 flex flex-col min-h-screen">
+	<html class="h-full bg-white" lang="en" >
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+			<title>Accent</title>
+			<link rel="manifest" href="/static/manifest.json"/>
+			<link rel="apple-touch-icon" href="/static/apple-touch-icon.png"/>
+			<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+			<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
+			<link rel="icon" href="/static/favicon.png" sizes="any"/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width,initial-scale=1"/>
+			<link rel="stylesheet" href="/static/styles.css"/>
+			<script src="https://unpkg.com/htmx.org@1.9.11"></script>
+			<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.7/dist/cdn.min.js"></script>
+			<meta name="htmx-config" content={ `{"globalViewTransitions":true}` }/>
+		</head>
+		<body hx-ext="morph, json-enc" class="container h-full">
 			@Header()
-			<main class="flex-1 overflow-auto">
 				@page
-			</main>
-			@Footer()
 		</body>
 	</html>
 }

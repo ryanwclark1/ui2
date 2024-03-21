@@ -4,12 +4,13 @@ import (
 	"embed"
 )
 
-//go:embed assets
-var assets embed.FS
+
+//go:embed static
+var static embed.FS
 
 func (s *Server) Routes() error {
-	s.r.Handle("GET /assets/*", s.mw(s.HandleAssets(assets)))
-	s.r.Handle("GET /favicon.ico", s.HandleFavicon(assets))
+	s.r.Handle("GET /static/*", s.mw(s.HandleAssets(static)))
+	s.r.Handle("GET /favicon.ico", s.HandleFavicon(static))
 
 	s.r.Handle("GET /session", s.mw(s.handleSaveSession()))
 	s.r.Handle("GET /read-session", s.mw(s.handleReadSession()))

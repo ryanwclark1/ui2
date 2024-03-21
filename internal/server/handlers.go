@@ -4,7 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"io/fs"
-	"log"
+	"log/slog"
 	"net/http"
 
 	"github.com/a-h/templ"
@@ -14,17 +14,17 @@ import (
 )
 
 func (s *Server) HandleAssets(assets embed.FS) http.Handler {
-	contentAssets, err := fs.Sub(fs.FS(assets), "assets")
+	contentAssets, err := fs.Sub(fs.FS(assets), "static")
 	if err != nil {
-		log.Fatalf("HandleAssets: failed to load assets: %v", err)
+		slog.Info("HandleAssets: failed to load assets: %v", err)
 	}
-	return http.StripPrefix("/assets/", http.FileServerFS(contentAssets))
+	return http.StripPrefix("/static/", http.FileServerFS(contentAssets))
 }
 
 func (s *Server) HandleFavicon(assets embed.FS) http.Handler {
-	b, err := assets.ReadFile("assets/img/favicon.ico")
+	b, err := assets.ReadFile("static/favicon.ico")
 	if err != nil {
-		log.Fatalf("HandleFavicon: failed to read favicon.ico: %v", err)
+		slog.Info("HandleFavicon: failed to read favicon.ico: %v", err)
 	}
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "image/x-icon")
