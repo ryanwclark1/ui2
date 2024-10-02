@@ -17,7 +17,7 @@ import (
 
 func main() {
 	conf := config.New()
-	srv, err := server.New(conf)
+	srv, err := server.NewServer(conf)
 	if err != nil {
 		log.Fatalf("server: %v\n", err)
 	}

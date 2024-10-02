@@ -19,7 +19,7 @@ type Server struct {
 	sess sessions.Store
 }
 
-func New(conf config.Config) (*Server, error) {
+func NewServer(conf config.Config) (*Server, error) {
 	s := new(Server)
 	s.conf = conf
 	s.r = http.NewServeMux()
